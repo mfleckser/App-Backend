@@ -1,4 +1,4 @@
-from flask import Flask, request, json
+from flask import Flask, request, json, make_response
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
@@ -29,7 +29,10 @@ def new_account():
 
     print("Added")
 
-    return {"201": "Added new user", "Access-Control-Allow-Origin": "*"}
+    res = make_response({"201": "Added new user"})
+    res.headers["Access-Control-Allow-Origin"] = "*"
+
+    return res
 
 @app.route("/")
 def index():
