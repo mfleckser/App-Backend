@@ -29,7 +29,7 @@ def new_account():
 
     print("Added")
 
-    return {"201": "Added new user"}
+    return {"201": "Added new user", "Access-Control-Allow-Origin": "*"}
 
 @app.route("/")
 def index():
