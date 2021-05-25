@@ -31,5 +31,9 @@ def new_account():
 
     return {"201": "Added new user"}
 
+@app.route("/")
+def index():
+    return "Hello world"
+
 if __name__ == "__main__":
     app.run()
