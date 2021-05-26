@@ -36,7 +36,7 @@ def new_account():
 
 @app.route("/")
 def index():
-    return "Hello world"
+    return "Hello world again!"
 
 if __name__ == "__main__":
     app.run()
