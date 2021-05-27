@@ -22,7 +22,9 @@ def new_account():
     new_user = User(username=uname, password=pword)
 
     if(len(User.query.filter_by(username=uname).all()) > 0): # username taken
-        res = make_response({"400": "Username already taken"})
+        res = make_response({
+            "message": "Username already taken", "status": "400"
+        })
         res.headers["Access-Control-Allow-Origin"] = "*"
         return res
 
@@ -31,7 +33,9 @@ def new_account():
 
     print("Added")
 
-    res = make_response({"201": "Added new user"})
+    res = make_response({
+        "message": "Added new user", "status": "201"
+    })
     res.headers["Access-Control-Allow-Origin"] = "*"
 
     return res
