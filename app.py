@@ -22,7 +22,9 @@ def new_account():
     new_user = User(username=uname, password=pword)
 
     if(len(User.query.filter_by(username=uname).all()) > 0): # username taken
-        return {"400": "Username already taken"}
+        res = make_response({"400": "Username already taken"})
+        res.headers["Access-Control-Allow-Origin"] = "*"
+        return res
 
     db.session.add(new_user)
     db.session.commit()
